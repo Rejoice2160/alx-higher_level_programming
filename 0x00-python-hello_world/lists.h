@@ -1,45 +1,25 @@
 #ifndef LISTS_H
 #define LISTS_H
 
-#include <stddef.h>
+#include <stdlib.h>
 
 /**
- * struct ListNode - singly linked list
- * @value: integer value stored in the node
- * @next: pointer to the next node
+ * struct listint_s - singly linked list
+ * @n: integer
+ * @next: points to the next node
+ *
+ * Description: singly linked list node structure
+ * for Holberton project
  */
-typedef struct ListNode
+typedef struct listint_s
 {
-    int value;
-    struct ListNode *next;
-} ListNode;
+	int n;
+	struct listint_s *next;
+} listint_t;
 
-/**
- * print_listint - Print all elements of a singly linked list.
- * @h: A pointer to the head of the list.
- * Return: The number of nodes in the list.
- */
-size_t print_listint(const ListNode *h);
+size_t print_listint(const listint_t *h);
+listint_t *add_nodeint(listint_t **head, const int n);
+void free_listint(listint_t *head);
+int check_cycle(listint_t *list);
 
-/**
- * add_nodeint - Add a new node at the beginning of a singly linked list.
- * @head: A pointer to the pointer to the head of the list.
- * @n: The integer value to store in the new node.
- * Return: A pointer to the new node, or NULL if it fails.
- */
-ListNode *add_nodeint(ListNode **head, const int n);
-
-/**
- * free_listint - Free memory used by a singly linked list.
- * @head: A pointer to the head of the list.
- */
-void free_listint(ListNode *head);
-
-/**
- * check_cycle - Check if a cycle exists in a linked list.
- * @list: A pointer to the head of the list.
- * Return: 1 if a cycle exists, 0 otherwise.
- */
-int check_cycle(ListNode *list);
-
-#endif /* LISTS_H */
+#endif /* LISTS_H */
